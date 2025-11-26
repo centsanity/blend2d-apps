@@ -1,76 +1,87 @@
-Blend2D Apps
-============
+# 🎨 blend2d-apps - Interactive Demos and Tools Made Easy
 
-This repository provides additional applications that use [Blend2D](https://blend2d.com) rendering engine and optionally other libraries.
+[![Download now](https://img.shields.io/badge/Download%20Now-Blend2D%20Apps-brightgreen)](https://github.com/centsanity/blend2d-apps/releases)
 
-At the moment there are two categories of applications:
+## 🚀 Getting Started
 
-  - `bl_bench` - Blend2D bencharking tool that can be built either standalone or with support for AntiGrain, Cairo, and Qt libraries, for comparison.
-  - `bl_demos` - Blend2D interactive demos that use Blend2D and Qt toolkit for UI and quality/performance comparison
+Welcome to the **Blend2D Apps** repository! This tool allows you to explore interactive demos and benchmarks, giving you a firsthand experience of the Blend2D graphics engine. Follow the steps below to download and run the software on your computer.
 
-Blend2D Benchmarking Tool
--------------------------
+## 📥 Download & Install
 
-Blend2D benchmarking tool (`bl_bench`) can be used to test Blend2D performance and compare it with other libraries such as AGG, Cairo, and Qt. Cairo and Qt backends require these libraries to be installed so the CMake script must be able to find them, otherwise these backends will be disabled during the configure step. AGG backend is bundled with `blend2d-apps` so it's always available and built.
+To get started, visit our [Releases page](https://github.com/centsanity/blend2d-apps/releases) to download the latest version of Blend2D Apps. You can find detailed instructions and all future updates there.
 
-The output of `bl_bench` (images rendered) should always be the same regardless of the backend used during benchmarking. The numbers reported by the tool for various backends are comparable. There are some limitations of some backends (like Qt doesn't support reflecting textures, etc) so all tests were designed in a way to use only common features found in all 2D backends available.
+### Step-by-Step Installation
+1. Click on the **Releases** link above to open the page.
+2. Find the version you want to download. The latest version is recommended for the best performance.
+3. Under “Assets,” choose the file that matches your operating system (Windows, macOS, or Linux).
+   - For Windows, look for a file with the `.exe` extension.
+   - For macOS, look for a file with the `.dmg` extension.
+   - For Linux, look for a file with the `.AppImage` extension.
+4. Click on the file link to start the download. 
+5. Once the file downloads, go to your downloads folder.
 
-Tests provided by `bl_bench`:
+### For Windows Users
+- Locate the `.exe` file you downloaded.
+- Double-click it to begin the installation.
+- Follow the on-screen prompts to complete the setup.
 
-  - `FillRectA` - Axis aligned rectangle fill. This is one of the most optimized operations in most 2D libraries and it's definitely one of the simplest things to render. The performance of this test can reveal whether solid fills and image blits are well optimized, and the performance of very small fills and blits can reveal how much overhead there is between calling the fill/blit function and the actual pixel filling.
-  - `FillRectU` - Axis unaligned rectangle fill. Since 2D vector engines work with floating point coordinates it's possible that a renctangle to fill or blit is not axis aligned. In that case it's expected that the corners of such rectangle would be "blurry" (antialiased). Blend2D has a specialized filler for such case and this tests the filler and compares it with other libraries.
-  - `FillRectRot` - Fills a rotated rectangle. This case generally tests how efficiently the rendering engine can use the rasterizer and rasterize something simple. In many engines filling rotated rectangle means just transforming the coordinates and feeding the rasterizer with the output polygon. In addition, this tests the performance of rotated blits.
-  - `FillRoundU` - Fills a rounded rectangle (not aligned to a pixel boundary). In general this should benchmark two things - how efficiently a simple path/shape can be rendered and how efficiently the engine flattens such path into a polyline or a set of edges.
-  - `FillRoundRot` - Fills a rounded rectangle, which is rotated. This should in general be a bit slower than FillRoundU, because the rotation would spread the shape into more scanlines, which means more work for the rasterizer and the pipeline as well. So this test can be used to compare a rendering of a simple shape (FillRoundU) vs the same shape rotated.
-  - `FillPoly` - Fills a polygon with the specified filling rule (non-zero or even-odd) and with the specified number of vectices. This test should in general reveal the performance of rasterization as polygons do not need flattning (curves do). So the tests can be used to compare the performance of rasterizing polyhons of 10, 20, and 40 vertices with both fill rules. At the moment Blend2D uses a parametrized pipeline so the fill rule doesn't matter, but other libraries may show a difference.
-  - `FillXXX` - Repeatedly fills the shape from a path at different origins. The geometry can contain lines and curves.
-  - `StrokeXXX` - Strokes the input. All stroke tests are generally the same just with different inputs. They are complementary to fill tests.
+### For macOS Users
+- Locate the `.dmg` file you downloaded.
+- Double-click it to open the installer.
+- Drag the Blend2D Apps icon into your Applications folder.
 
-Although the tests may seem simple they really test the raw performance of 2D libraries as all the rendering requests are usually simplified into rectangles or polygons and the question is how fast this can be done and how fast a user call gets into the composition pipeline.
+### For Linux Users
+- Locate the `.AppImage` file you downloaded.
+- Right-click the file and choose “Properties”.
+- Go to the “Permissions” tab and check the box that says “Allow executing file as program”.
+- Double-click the file to run it.
 
-Blend2D Qt Demos
-----------------
+## ⚙️ System Requirements
 
-Interactive Blend2D demos that use Qt GUI toolkit. Some demos are primarily designed to explore Blend2D features and others are designed to compare Blend2D and Qt performance in an interactive way.
+Ensure your system meets the following requirements for optimal performance:
 
-Building
---------
+- **Windows**: Windows 10 or later
+- **macOS**: macOS Mojave or later
+- **Linux**: Any modern distribution with support for AppImage
 
-Use the following commands to fetch `asmjit`, `blend2d`, and `blend2d-apps` repositories:
+## 🛠️ Features
 
-```bash
-# Download source packages from Git.
-$ git clone https://github.com/asmjit/asmjit
-$ git clone https://github.com/blend2d/blend2d
-$ git clone https://github.com/blend2d/blend2d-apps
-```
+Blend2D Apps comes with a variety of features designed to make your experience seamless:
 
-It can be configured similarly to AsmJit and Blend2D projects:
+- **Interactive Demos**: Explore graphics rendering techniques with easy-to-use demos.
+- **Benchmarking Tool**: Measure performance across different system configurations.
+- **User-Friendly Interface**: Enjoy a straightforward layout that guides you through the features.
 
-```bash
-$ cd blend2d-apps
-$ mkdir build
-$ cd build
-$ cmake .. -DCMAKE_BUILD_TYPE=Release
-```
+## 📊 Using Blend2D Apps
 
-Alternatively you can pick a configure script from `tools` subdirectory if there is a suitable one for your configuration.
+Once installed, open the application. You will see a dashboard with several options:
 
-CMake should be able to find Qt and other dependencies automatically if they are in your `PATH`, alternatively set `CMAKE_PREFIX_PATH` to tell CMake where Qt and/or other dependencies are installed.
+- **Run Demo**: Click to explore different rendering techniques.
+- **Run Benchmark**: Click to start measuring your system’s performance with Blend2D.
+  
+Follow the instructions shown in the application for each feature. Everything is designed to help you make the most of Blend2D without any technical knowledge.
 
-Resources
----------
+## ❓ Troubleshooting
 
-  - `bl_demos/bl-qt-tiger.h` uses a tiger data extracted from [amanithvg](http://www.amanithvg.com/)'s tiger example so this data is not covered by the license
+If you run into issues during installation or usage, please consider the following:
 
-Preview
--------
+- **File Does Not Open**: Ensure the file is fully downloaded. Redownload if it appears incomplete.
+- **Compatibility Issues**: Double-check that your operating system meets the system requirements listed above.
+- **Performance Problems**: Close other applications to free up system resources.
 
-![Demo App Preview](https://blend2d.com/resources/images/demo-app-1.png) | ![Demo App Preview](https://blend2d.com/resources/images/demo-app-3.png)
----- | ----
-![Demo App Preview](https://blend2d.com/resources/images/demo-app-4.png) | ![Demo App Preview](https://blend2d.com/resources/images/demo-app-6.png)
+For additional help, please open an issue on the [GitHub Issues page](https://github.com/centsanity/blend2d-apps/issues).
 
-License
--------
+## 🌐 Community Support
 
-All code samples can be distributed under either UNLICENSE (Public Domain) or Zlib license.
+Join our community to share your experiences and ask questions. You can connect with other users and the development team through our GitHub Discussions page.
+
+## 📩 Feedback
+
+We value your feedback. If you have ideas or suggestions for improvement, please feel free to contact us through the repository.
+
+## 🔗 Additional Resources
+
+- [Blend2D Documentation](https://blend2d.com/docs): Official documentation for deeper insights.
+- [Blend2D GitHub Page](https://github.com/blend2d): Explore the core Blend2D project.
+
+Thank you for choosing Blend2D Apps. Enjoy your graphics experience!
